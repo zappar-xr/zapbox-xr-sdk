@@ -1,0 +1,19 @@
+{
+  "name": "com.zappar.xr.zapbox",
+  "displayName": "Zapbox XR SDK",
+  "version": "0.1.0",
+  "unity": "2019.4",
+  "description": "Zapbox XR SDK for Unity from Zappar. Providing rendering and controller input support for Zapbox.",
+  "keywords": [
+    "zappar",
+    "zapbox",
+    "vr",
+    "xr",
+    "ar",
+    "sdk"
+  ],
+  "dependencies": {
+    "com.unity.xr.management": "3.2.9",
+    "com.unity.xr.legacyinputhelpers": "2.1.4"
+  }
+}

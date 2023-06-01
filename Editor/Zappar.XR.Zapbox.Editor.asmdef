@@ -1,0 +1,26 @@
+{
+    "name": "Zappar.XR.Zapbox.Editor",
+    "rootNamespace": "",
+    "references": [
+        "Unity.XR.Management.Editor",
+        "Unity.XR.Management",
+        "Zappar.XR.Zapbox"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.xr.management",
+            "expression": "3.2.0",
+            "define": "XR_MGMT_GTE_320"
+        }
+    ],
+    "noEngineReferences": false
+}

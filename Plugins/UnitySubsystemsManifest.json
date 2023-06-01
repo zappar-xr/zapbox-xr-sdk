@@ -1,0 +1,15 @@
+{
+	"name": "Zapbox",
+	"version": "0.1.0",
+	"libraryName": "GfxPluginZapbox",
+	"displays": [
+		{
+			"id": "ZapboxDisplay"
+		}
+	],
+	"inputs": [
+		{
+			"id": "ZapboxInput"
+		}
+	]
+}
