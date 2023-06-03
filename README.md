@@ -1,25 +1,26 @@
 Zapbox XR SDK for Unity
 ====================================
-Copyright 2023 Zappar Ltd.
+Copyright (c) 2023 Zappar Ltd.
 
 This package provides support for building Zapbox XR experiences in Unity.
 
-How to enable the Zapbox provider for XR support:
+On the Unity side you can follow standard Unity documentation and tutorials about XR development.
+
+Unity's XR Interaction Toolkit also works out-of-the-box with the Zapbox plugin.
+
+There's a simple sample project showing Interaction Toolkit "grab" interactions in a Mixed Realty scene available [here](https://github.com/zappar-xr/zapbox-xrit-demo).
+
+How to enable the Zapbox provider for XR support in your own projects:
 1. Add this package in the Unity Package Manager (+ -> Add package from git URL -> `https://github.com/zappar-xr/zapbox-xr-sdk.git`)
 2. Open the XR Plug-in Management panel in the Project Settings window
 3. Enable the "Zapbox" Plug-in Provider in the iOS tab (no other iOS providers should be enabled)
-
-On the Unity side you can follow standard Unity documentation and tutorials about XR development.
-
-Unity's XR interaction framework also works out-of-the-box with the Zapbox plugin.
-
-Note the app must include support for the portrait orientation, as this enables lower-latency compositing on iOS.
 
 Join us over on the [Zapbox Discord Server](https://discord.gg/5nEC8FRjef) if you need any help or just want to chat about Zapbox!
 
 ## Current Status
 
 - Currently iPhone only. Offers the best experience on iPhone 11 and later with the built-in ultrawide camera.
+- The app must include support for the portrait orientation, as this enables lower-latency compositing on iOS.
 - iOS devices without ultrawide camera will work with the main camera, however camera FoV for pass-through and controller tracking will be reduced. This version doesn't yet support using the ultrawide camera adapter that is included in the box.
 - The only tracking origin mode supported is "Floor" (the world anchor with the "zapbox" text on it is the origin of the space)
 - User tracking currently only uses the single orgin marker.
