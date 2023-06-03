@@ -19,6 +19,7 @@
 namespace Zappar.XR
 {
     using System.Collections.Generic;
+    using UnityEngine;
     using UnityEngine.XR;
     using UnityEngine.XR.Management;
     using UnityEngine.InputSystem;
@@ -79,6 +80,8 @@ namespace Zappar.XR
         /// </returns>
         internal static bool _isStarted { get; private set; }
 
+        private static int _prevFramerate;
+
         /// <summary>
         /// Initialize the loader. This should initialize all subsystems to support the desired
         /// runtime setup this loader represents.
@@ -109,6 +112,8 @@ namespace Zappar.XR
             StartSubsystem<XRDisplaySubsystem>();
             StartSubsystem<XRInputSubsystem>();
             _isStarted = true;
+            _prevFramerate = Application.targetFrameRate;
+            Application.targetFrameRate = 60;
             return true;
         }
 
@@ -122,6 +127,7 @@ namespace Zappar.XR
             StopSubsystem<XRDisplaySubsystem>();
             StopSubsystem<XRInputSubsystem>();
             _isStarted = false;
+            Application.targetFrameRate = _prevFramerate;
             return true;
         }
 
