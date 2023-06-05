@@ -40,6 +40,7 @@ Join us over on the [Zapbox Discord Server](https://discord.gg/5nEC8FRjef) if yo
 - Camera manual exposure UI.
 - Moving the late warp process to a compute shader to remove tearing when content graphics work takes longer than a frame.
 - Improving controller pairing flow, and automatic disconnection when the app is in the background.
+- Automatic calibration of the active range of the analog thumbstick and trigger inputs on each controller.
 
 ### Future work
 
