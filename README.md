@@ -2,7 +2,7 @@ Zapbox XR SDK for Unity
 ====================================
 Copyright (c) 2023 Zappar Ltd.
 
-This package provides support for building Zapbox XR experiences in Unity.
+This package provides support for building [Zapbox](https://zappar.com/zapbox) XR experiences in Unity.
 
 On the Unity side you can follow standard Unity documentation and tutorials about XR development.
 
@@ -26,7 +26,12 @@ Join us over on the [Zapbox Discord Server](https://discord.gg/5nEC8FRjef) if yo
 - User tracking currently only uses the single orgin marker.
 - Camera exposure is hardcoded to be short to improve controller tracking; bright indoor lighting will work best.
 - Unity's frame workload will need to complete within 10ms or so to avoid tearing from the late-warp GPU work not happening in time. Simple content should be OK.
+
+### Tips and tricks for the current version
+
 - We recommend you just wake up one controller first when in the pairing UI so you can tell which is left and right.
+- When the controllers are first connected (LED changes from flashing to constant low brightness state) then they should be left stationary on a stable surface for 5-10 seconds for the runtime to calibrate gyro bias.
+- Kill the app (by swiping it up from the App Switcher) when you've finished to disconnect the controllers - the LEDs will return to flashing mode for 60 seconds, and then the controllers will enter deep sleep.
 
 ### Planned for next release (estimated by end of June)
 
