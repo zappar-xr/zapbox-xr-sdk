@@ -23,7 +23,7 @@ Join us over on the [Zapbox Discord Server](https://discord.gg/5nEC8FRjef) if yo
 - The app must include support for the portrait orientation, as this enables lower-latency compositing on iOS.
 - iOS devices without ultrawide camera will work with the main camera, however camera FoV for pass-through and controller tracking will be reduced. This version doesn't yet support using the ultrawide camera adapter that is included in the box.
 - The only tracking origin mode supported is "Floor" (the world anchor with the "zapbox" text on it is the origin of the space)
-- User tracking currently only uses the single orgin marker.
+- This build supports multiple world markers to increase the tracking volume. The origin and orientation of the tracking space comes from the world anchor with the zapbox text.
 - Camera exposure is hardcoded to be short to improve controller tracking; bright indoor lighting will work best.
 - Unity's frame workload will need to complete within 10ms or so to avoid tearing from the late-warp GPU work not happening in time. Simple content should be OK.
 
@@ -33,9 +33,9 @@ Join us over on the [Zapbox Discord Server](https://discord.gg/5nEC8FRjef) if yo
 - When the controllers are first connected (LED changes from flashing to constant low brightness state) then they should be left stationary on a stable surface for 5-10 seconds for the runtime to calibrate gyro bias.
 - Kill the app (by swiping it up from the App Switcher) when you've finished to disconnect the controllers - the LEDs will return to flashing mode for 60 seconds, and then the controllers will enter deep sleep.
 
-### Near-term roadmap (estimated to complete by end of June)
+### Near-term roadmap (estimated to complete by end of August)
 
-- Using mutliple world markers for user tracking to improve stabaility and tracking volume.
+- Improving tracking stability with multiple markers.
 - Levaraging accelerometer data from the device to further reduce the perceived camera latency when moving and the positional jitter effect.
 - Camera manual exposure UI.
 - Moving the late warp process to a compute shader to remove tearing when content graphics work takes longer than a frame.
