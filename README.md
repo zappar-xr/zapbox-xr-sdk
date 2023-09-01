@@ -33,13 +33,14 @@ Join us over on the [Zapbox Discord Server](https://discord.gg/5nEC8FRjef) if yo
 - When the controllers are first connected (LED changes from flashing to constant low brightness state) then they should be left stationary on a stable surface for 5-10 seconds for the runtime to calibrate gyro bias.
 - Kill the app (by swiping it up from the App Switcher) when you've finished to disconnect the controllers - the LEDs will return to flashing mode for 60 seconds, and then the controllers will enter deep sleep.
 
-### Near-term roadmap (estimated to complete by end of August)
+### Near-term roadmap (estimated to complete in September)
 
+- Improved support for recording experiences.
+- Improving controller pairing flow, and automatic disconnection when the app is in the background.
 - Improving tracking stability with multiple markers.
 - Levaraging accelerometer data from the device to further reduce the perceived camera latency when moving and the positional jitter effect.
 - Camera manual exposure UI.
 - Moving the late warp process to a compute shader to remove tearing when content graphics work takes longer than a frame.
-- Improving controller pairing flow, and automatic disconnection when the app is in the background.
 - Automatic calibration of the active range of the analog thumbstick and trigger inputs on each controller.
 
 ### Future work
@@ -48,7 +49,7 @@ Join us over on the [Zapbox Discord Server](https://discord.gg/5nEC8FRjef) if yo
 - Hand tracking integration.
 - Android support.
 
-## SDK Expiration Date: 01 October 2023
+## SDK Expiration Date: 01 April 2024
 
 This is an early access build of the SDK so you can start building content.
 
