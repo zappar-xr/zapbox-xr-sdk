@@ -17,6 +17,27 @@ How to enable the Zapbox provider for XR support in your own projects:
 
 Join us over on the [Zapbox Discord Server](https://discord.gg/5nEC8FRjef) if you need any help or just want to chat about Zapbox!
 
+## What's new
+
+- Improved support for recording experiences.
+- Improving controller pairing flow, and automatic disconnection when the app is in the background.
+
+## Video capture support
+
+The SDK now offers two modes for recording your Zapbox experiences.
+
+### First-person view
+
+First-person captures can be made with the same device running your app with the Zapbox SDK. To start and stop the first-person recording, double-tap near the top of the device screen (in landscape), just to the right of the center line separating the views. At the end of the recording you'll find it in your Photos app on the device.
+
+This mode records the full 1440x1080 camera feed and overlays a new view from Unity that should align exactly with the camera. During recording Unity will be rendering the scene 3 times, so there may be an impact on performance.
+
+### Third-person view / Spectator Mode
+
+The Zapbox SDK now also supports capturing video with a third-person view so you can see both the person wearing Zapbox and the content they are interacting with.
+
+This mode requires another iPhone (that supports ARKit) for capturing the spectator video, and a dedicated app running on that device for video capture. We are preparing that app for the App Store / Test Flight now and will have more information on how to use it shortly.
+
 ## Current Status
 
 - Currently iPhone only. Offers the best experience on iPhone 11 and later with the built-in ultrawide camera.
@@ -29,14 +50,10 @@ Join us over on the [Zapbox Discord Server](https://discord.gg/5nEC8FRjef) if yo
 
 ### Tips and tricks for the current version
 
-- We recommend you just wake up one controller first when in the pairing UI so you can tell which is left and right.
-- When the controllers are first connected (LED changes from flashing to constant low brightness state) then they should be left stationary on a stable surface for 5-10 seconds for the runtime to calibrate gyro bias.
 - Kill the app (by swiping it up from the App Switcher) when you've finished to disconnect the controllers - the LEDs will return to flashing mode for 60 seconds, and then the controllers will enter deep sleep.
 
-### Near-term roadmap (estimated to complete in September)
+### Near-term roadmap
 
-- Improved support for recording experiences.
-- Improving controller pairing flow, and automatic disconnection when the app is in the background.
 - Improving tracking stability with multiple markers.
 - Levaraging accelerometer data from the device to further reduce the perceived camera latency when moving and the positional jitter effect.
 - Camera manual exposure UI.
@@ -55,4 +72,4 @@ This is an early access build of the SDK so you can start building content.
 
 We will be making signficant improvements to the quality of the experience and also addressing wider ecosystem questions (such as how third-party apps could integrate with a future "Zapbox Hub" app) which will require apps to update the version of their SDK for compatibility.
 
-Therefore we have decided to introduce an expiry date for these early access SDKs to ensure users will get a consistent experience as we get closer to a full "consumer" release. We'll ensure the update process will be seemless for developers and will post updated SDKs well in advance of the expiration date.
+Therefore we have decided to introduce an expiry date for these early access SDKs to ensure users will get a consistent experience as we continue to grow the number of new users coming to Zapbox. We'll ensure the update process will be seemless for developers and will post updated SDKs well in advance of the expiration date.

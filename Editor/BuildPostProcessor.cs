@@ -38,14 +38,6 @@ namespace Zappar.XR.Editor
         {
             if (buildTarget == BuildTarget.iOS)
             {
-                // Note: The meta files removal is a workaround for
-                // <a https://issuetracker.unity3d.com/issues/possibly-ios-unity-meta-files-are-generated-in-the-plugin-directory-and-then-copied-to-plugins-directory-in-the-xcode-build>Issue #1184957</a>
-                // in Unity.
-                FileUtil.DeleteFileOrDirectory(
-                    buildPath + "/Frameworks/com.google.xr.cardboard/Runtime/iOS/sdk.bundle/qrSample.png.meta");
-                FileUtil.DeleteFileOrDirectory(
-                    buildPath + "/Frameworks/com.google.xr.cardboard/Runtime/iOS/sdk.bundle/tickmarks.png.meta");
-
                 // Note: SDK binaries no longer contain bitcode, as
                 // <a https://developer.apple.com/documentation/Xcode-Release-Notes/xcode-14-release-notes>Apple has deprecated bitcode</a>.
                 string projectPath = PBXProject.GetPBXProjectPath(buildPath);
@@ -54,26 +46,34 @@ namespace Zappar.XR.Editor
                                                       "ENABLE_BITCODE = NO");
                 File.WriteAllText(projectPath, projectConfig);
 
-                // Add core bluetooth privacy description
+                // Load the plist to add the required privacy entries
                 string plistPath = buildPath + "/Info.plist";
                 PlistDocument plist = new PlistDocument();
                 plist.ReadFromFile(plistPath);
                 PlistElementDict root = plist.root;
-                const string privacyBluetoothUsage = "NSBluetoothAlwaysUsageDescription";//"Privacy - Bluetooth Always Usage Description"; // ios version 13.0 or newer
-                const string privacyBluetoothPeripheral = "NSBluetoothPeripheralUsageDescription";// "Privacy - Bluetooth Peripheral Usage Description"; //ios version 12.0 or before
-                PlistElementString bluetoothMessage = new PlistElementString("Required to connect to zapbox controllers");
-                root[privacyBluetoothUsage] = bluetoothMessage;
-                root[privacyBluetoothPeripheral] = bluetoothMessage;
+                
+                const string bluetoothUsage = "Zapbox controllers require Bluetooth";
+                ensureKeyIsSet(root, "NSBluetoothAlwaysUsageDescription", bluetoothUsage); // From iOS 13
+                ensureKeyIsSet(root, "NSBluetoothPeripheralUsageDescription", bluetoothUsage); // iOS 12 and earlier
 
-                //Add camera privacy description
-                const string privacyCamera = "NSCameraUsageDescription";
-                PlistElementString cameraMessage = new PlistElementString("Required for full 6-DoF zapbox tracking");
-                root[privacyCamera] = cameraMessage;
+                const string cameraUsage = "Zapbox requires camera access for Mixed Reality experiences";
+                ensureKeyIsSet(root, "NSCameraUsageDescription", cameraUsage);
+
+                const string networkUsage = "Zapbox requires local network access for spectator view captures";
+                ensureKeyIsSet(root, "NSLocalNetworkUsageDescription", networkUsage);
+
+                const string photoLibraryAddUsage = "Zapbox saves video captures to your Photos library";
+                ensureKeyIsSet(root, "NSPhotoLibraryAddUsageDescription", photoLibraryAddUsage);
 
                 //save plist values
                 plist.WriteToFile(plistPath);
-
             }
+        }
+
+        private static void ensureKeyIsSet(PlistElementDict root, string key, string defaultValue)
+        {
+            if(root[key] != null) return;
+            root.SetString(key, defaultValue);
         }
     }
 }

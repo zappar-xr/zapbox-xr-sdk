@@ -22,14 +22,17 @@ namespace Zappar.XR
     using UnityEngine;
     using UnityEngine.XR;
     using UnityEngine.XR.Management;
+#if UNITY_INPUT_SYSTEM && ENABLE_VR
     using UnityEngine.InputSystem;
     using UnityEngine.InputSystem.Layouts;
     using UnityEngine.InputSystem.XR;
+#endif
 
 #if UNITY_EDITOR
     using UnityEditor;
 #endif
 
+#if UNITY_INPUT_SYSTEM && ENABLE_VR
 #if UNITY_EDITOR
     [InitializeOnLoad]
 #endif
@@ -48,6 +51,7 @@ namespace Zappar.XR
                 );
         }
     }
+#endif
 
     /// <summary>
     /// XR Loader for Zapbox XR Plugin.
@@ -91,9 +95,10 @@ namespace Zappar.XR
         public override bool Initialize()
         {
 #if !UNITY_EDITOR
+#if UNITY_INPUT_SYSTEM && ENABLE_VR
             InputLayoutLoader.RegisterInputLayouts();
 #endif
-            CardboardSDKInitialize();
+#endif
             CreateSubsystem<XRDisplaySubsystemDescriptor, XRDisplaySubsystem>(
                 _displaySubsystemDescriptors, ApiConstants.kDisplayProviderId);
             CreateSubsystem<XRInputSubsystemDescriptor, XRInputSubsystem>(
@@ -140,50 +145,9 @@ namespace Zappar.XR
         {
             DestroySubsystem<XRDisplaySubsystem>();
             DestroySubsystem<XRInputSubsystem>();
-            CardboardSDKDeinitialize();
             _isInitialized = false;
             return true;
         }
 
-#if UNITY_ANDROID
-        [DllImport(ApiConstants.kPluginName)]
-        private static extern void CardboardUnity_initializeAndroid(IntPtr context);
-        [DllImport(ApiConstants.kPluginName)]
-        private static extern void ZapboxUnity_deInitializeAndroid(IntPtr context);
-#endif
-
-        /// <summary>
-        /// For Android, initializes JavaVM and Android activity context.
-        /// Then, for both Android and iOS, it sets the screen size in pixels.
-        /// </summary>
-        private void CardboardSDKInitialize()
-        {
-#if UNITY_ANDROID
-            // TODO(b/169797155): Move this to UnityPluginLoad().
-            // Gets Unity context (Main Activity).
-            var unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-            var activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
-            var context = activity.Call<AndroidJavaObject>("getApplicationContext");
-
-            // Initializes Cardboard SDK.
-            CardboardUnity_initializeAndroid(activity.GetRawObject());
-#endif
-        }
-
-        /// <summary>
-        /// Widget textures are preserved until the XR provider is deinitialized.
-        /// </summary>
-        private void CardboardSDKDeinitialize()
-        {
-#if UNITY_ANDROID
-            // Get Unity context (Main Activity).
-            var unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-            var activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
-            var context = activity.Call<AndroidJavaObject>("getApplicationContext");
-
-            // clears any cached jni global resources
-            ZapboxUnity_deInitializeAndroid(activity.GetRawObject());
-#endif
-        }
     }
 }

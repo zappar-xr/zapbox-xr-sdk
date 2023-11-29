@@ -15,7 +15,7 @@ void UNITY_INTERFACE_EXPORT UNITY_INTERFACE_API UnityPluginUnload();
 #endif
 
 extern UIViewController *UnityGetGLViewController(); // Root view controller of Unity screen.
-extern void ZapboxIos_SetUIViewController(void* unityViewController);
+extern void ZapboxDisplay_SetUnityViewController(UIViewController* unity_view_controller);
 
 @interface GfxPluginZapbox: NSObject
 
@@ -31,8 +31,7 @@ extern void ZapboxIos_SetUIViewController(void* unityViewController);
 	// we need to do that manually on iOS
     UnityRegisterRenderingPluginV5(&UnityPluginLoad, &UnityPluginUnload);
     
-    //id rootViewController = UnityGetGLViewController();
-    ZapboxIos_SetUIViewController((__bridge void *)(UnityGetGLViewController()));
+    ZapboxDisplay_SetUnityViewController(UnityGetGLViewController());
 }
 
 @end

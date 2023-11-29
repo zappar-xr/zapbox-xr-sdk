@@ -1,0 +1,212 @@
+.zcomponent-defaultloader {
+    position: fixed;
+    font-family: sans-serif;
+    color: white;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center center;
+}
+
+#zcomponent-defaultloader-container {
+    text-align: center;
+}
+
+#zcomponent-defaultloader-subtitle {
+    margin-bottom: 32px;
+}
+
+#zcomponent-defaultloader-progress {
+    position: relative;
+    width: 300px;
+    background-color: #333;
+    height: 12px;
+    border-radius: 6px;
+    margin: 0 auto;
+}
+
+#zcomponent-defaultloader-progress-percentage {
+    position: relative;
+    background-color: white;
+    height: 12px;
+    border-radius: 6px;
+}
+
+#zcomponent-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+#zcomponent-overlay > * {
+    pointer-events: auto;
+    position: absolute;
+}
+
+
+.zcomponent-align {
+    position: absolute;
+    transform-origin: 0 0;
+}
+
+.zcomponent-h-left {
+    left: 0px;
+}
+
+.zcomponent-h-center {
+    left: 50%;
+}
+
+.zcomponent-h-right {
+    right: 0px;
+}
+
+.zcomponent-v-top {
+    top: 0px;
+}
+
+.zcomponent-v-center {
+    top: 50%;
+}
+
+.zcomponent-v-bottom {
+    bottom: 0px;
+}
+
+.zcomponent-hc-v {
+    transform: translate(-50%, 0);
+}
+
+.zcomponent-h-vc {
+    transform: translate(0%, -50%);
+}
+
+.zcomponent-h-v {
+    transform: translate(0%, 0%);
+}
+
+.zcomponent-hc-vc {
+    transform: translate(-50%, -50%);
+}
+
+.zcomponent-textalert-container {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    row-gap: 24px;
+    max-width: 80%;
+}
+
+.zcomponent-textalert {
+    transition: opacity 0.5s;
+    background-color: black;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    font-family: sans-serif;
+    opacity: 0;
+    text-align: center;
+}
+
+.zcomponent-textalert-shown {
+    opacity: 1;
+}
+
+.zcomponent-cookieconsent {
+    z-index: 10000000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#zcomponent-cookieconsent-panel {
+    background: white;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-top: auto;
+    max-width: 500px;
+    font-family: sans-serif;
+    padding: 24px;
+    margin-left: 24px;
+    margin-right: 24px;
+    max-height: 80%;
+    overflow: scroll;
+}
+
+#zcomponent-cookieconsent-panel > h1 {
+    font-size: 24px;
+}
+
+#zcomponent-cookieconsent-panel button {
+    padding: 12px 24px;
+    background: none;
+    border: 2px solid black;
+    border-radius: 4px;
+    color: black;
+}
+
+#zcomponent-cookieconsent-panel button {
+    padding: 12px 24px;
+    background: none;
+    border: 2px solid black;
+    border-radius: 4px;
+    color: black;
+    display: block;
+    outline: none;
+}
+
+#zcomponent-cookieconsent-panel #zcomponent-cookieconsent-settings {
+    padding: 0;
+    border: 0;
+    background: none;
+    font-weight: bold;
+    text-decoration: underline;
+    padding-top: 12px;
+}
+
+.zcomponent-cookieconsent-type {
+    position: relative;
+}
+
+.zcomponent-cookieconsent-type input {
+    float: right;
+    /* top: 0px; */
+    /* right: 0px; */
+    width: 32px;
+    height: 32px;
+}
+
+#zcomponent-cookieconsent-panel h3 {
+    margin-bottom: 6px;
+}
+
+#zcomponent-cookieconsent-panel h5 {
+    margin-bottom: 6px;
+}
+
+#zcomponent-cookieconsent-panel #zcomponent-cookieconsent-save {
+    padding-top: 12px;
+}
+
+#zcomponent-cookieconsent-panel ul {
+    list-style-type: none;
+}
+
+#zcomponent-cookieconsent-privacypolicy {
+    padding-bottom: 12px;
+}
