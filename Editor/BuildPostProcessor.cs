@@ -38,6 +38,16 @@ namespace Zappar.XR.Editor
         {
             if (buildTarget == BuildTarget.iOS)
             {
+                // Added .meta files inside the bundle to make Unity happy, but we don't really
+                // want to add them into the app build - remove them from the build folder
+                // The Cardboard plugin took a similar approach
+                string bundlePath = buildPath + "/Frameworks/com.zappar.xr.zapbox/Plugins/iOS/Zapbox.bundle";
+                string[] metaFilePaths = Directory.GetFileSystemEntries(bundlePath, "*.meta", SearchOption.AllDirectories);
+                foreach (string path in metaFilePaths)
+                {
+                    File.Delete(path);
+                }
+
                 // Note: SDK binaries no longer contain bitcode, as
                 // <a https://developer.apple.com/documentation/Xcode-Release-Notes/xcode-14-release-notes>Apple has deprecated bitcode</a>.
                 string projectPath = PBXProject.GetPBXProjectPath(buildPath);
