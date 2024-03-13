@@ -62,7 +62,7 @@ namespace Zappar.XR.Editor
                 plist.ReadFromFile(plistPath);
                 PlistElementDict root = plist.root;
                 
-                const string bluetoothUsage = "Zapbox controllers require Bluetooth";
+                const string bluetoothUsage = "Bluetooth is required to connect to Zapbox controllers";
                 ensureKeyIsSet(root, "NSBluetoothAlwaysUsageDescription", bluetoothUsage); // From iOS 13
                 ensureKeyIsSet(root, "NSBluetoothPeripheralUsageDescription", bluetoothUsage); // iOS 12 and earlier
 

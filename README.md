@@ -19,8 +19,9 @@ Join us over on the [Zapbox Discord Server](https://discord.gg/5nEC8FRjef) if yo
 
 ## What's new
 
-- Improved support for recording experiences.
-- Improving controller pairing flow, and automatic disconnection when the app is in the background.
+- Improved support for recording experiences, including a "spectator" view from another iPhone.
+- Improving controller pairing flow.
+- Better app lifecycle management, including disconnecting from controllers when the app is in the background.
 
 ## Video capture support
 
@@ -36,7 +37,7 @@ This mode records the full 1440x1080 camera feed and overlays a new view from Un
 
 The Zapbox SDK now also supports capturing video with a third-person view so you can see both the person wearing Zapbox and the content they are interacting with.
 
-This mode requires another iPhone (that supports ARKit) for capturing the spectator video, and a dedicated app running on that device for video capture. We are preparing that app for the App Store / Test Flight now and will have more information on how to use it shortly.
+This mode requires another iPhone (that supports ARKit) for capturing the spectator video, and the dedicated "Zapbox Recorder" app running on that device for video capture. We are preparing that app for the App Store / Test Flight now and will have more information on how to use it shortly.
 
 ## Current Status
 
@@ -47,10 +48,6 @@ This mode requires another iPhone (that supports ARKit) for capturing the specta
 - This build supports multiple world markers to increase the tracking volume. The origin and orientation of the tracking space comes from the world anchor with the zapbox text.
 - Camera exposure is hardcoded to be short to improve controller tracking; bright indoor lighting will work best.
 - Unity's frame workload will need to complete within 10ms or so to avoid tearing from the late-warp GPU work not happening in time. Simple content should be OK.
-
-### Tips and tricks for the current version
-
-- Kill the app (by swiping it up from the App Switcher) when you've finished to disconnect the controllers - the LEDs will return to flashing mode for 60 seconds, and then the controllers will enter deep sleep.
 
 ### Near-term roadmap
 
@@ -66,7 +63,7 @@ This mode requires another iPhone (that supports ARKit) for capturing the specta
 - Hand tracking integration.
 - Android support.
 
-## SDK Expiration Date: 01 April 2024
+## SDK Expiration Date: 01 October 2024
 
 This is an early access build of the SDK so you can start building content.
 
