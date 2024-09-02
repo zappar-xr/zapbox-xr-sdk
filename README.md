@@ -1,6 +1,6 @@
 Zapbox XR SDK for Unity
 ====================================
-Copyright (c) 2023 Zappar Ltd.
+Copyright (c) 2024 Zappar Ltd.
 
 This package provides support for building [Zapbox](https://zappar.com/zapbox) XR experiences in Unity.
 
@@ -63,7 +63,7 @@ This mode requires another iPhone (that supports ARKit) for capturing the specta
 - Hand tracking integration.
 - Android support.
 
-## SDK Expiration Date: 01 October 2024
+## SDK Expiration Date: 01 April 2025
 
 This is an early access build of the SDK so you can start building content.
 
