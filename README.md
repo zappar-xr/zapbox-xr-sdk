@@ -1,6 +1,6 @@
 Zapbox XR SDK for Unity
 ====================================
-Copyright (c) 2024 Zappar Ltd.
+Copyright (c) 2025 Zappar Ltd.
 
 This package provides support for building [Zapbox](https://zappar.com/zapbox) XR experiences in Unity.
 
@@ -17,7 +17,14 @@ How to enable the Zapbox provider for XR support in your own projects:
 
 Join us over on the [Zapbox Discord Server](https://discord.gg/5nEC8FRjef) if you need any help or just want to chat about Zapbox!
 
-## What's new
+## What's new in 0.4.0
+
+- Added automatic range calibration for analog trigger.
+- Automatically calibrate thumbstick centre during "motion sensor calibration" phase of the controller pairing flow. NB: Ensure thumbstick is centred when the UI is in this mode - the easiest way to do this is just to place the controllers on a flat surface without touching them during the controller pairing.
+- Update thumbstick scale factors to ensure the full -1 to +1 range is available on all controllers.
+- Use a neck model to provide somewhat more realistic position updates when no markers are in view.
+
+## What's (somewhat less) new
 
 - Improved support for recording experiences, including a "spectator" view from another iPhone.
 - Improving controller pairing flow.
@@ -55,7 +62,6 @@ This mode requires another iPhone (that supports ARKit) for capturing the specta
 - Levaraging accelerometer data from the device to further reduce the perceived camera latency when moving and the positional jitter effect.
 - Camera manual exposure UI.
 - Moving the late warp process to a compute shader to remove tearing when content graphics work takes longer than a frame.
-- Automatic calibration of the active range of the analog thumbstick and trigger inputs on each controller.
 
 ### Future work
 
@@ -63,7 +69,7 @@ This mode requires another iPhone (that supports ARKit) for capturing the specta
 - Hand tracking integration.
 - Android support.
 
-## SDK Expiration Date: 01 April 2025
+## SDK Expiration Date: 01 April 2026
 
 This is an early access build of the SDK so you can start building content.
 
