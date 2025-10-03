@@ -17,6 +17,12 @@ How to enable the Zapbox provider for XR support in your own projects:
 
 Join us over on the [Zapbox Discord Server](https://discord.gg/5nEC8FRjef) if you need any help or just want to chat about Zapbox!
 
+## What's new in 0.5.0
+
+- Improvements to frame pacing for iOS 26.
+- HMD pose now reported in the center of the eyes as expected by Unity - previously it was reported at the position of the camera.
+- Removed the hardcoded expiry date.
+
 ## What's new in 0.4.0
 
 - Added automatic range calibration for analog trigger.
@@ -68,11 +74,3 @@ This mode requires another iPhone (that supports ARKit) for capturing the specta
 - Better simulation of stereo camera views by using more accurate world geometry for the reprojection.
 - Hand tracking integration.
 - Android support.
-
-## SDK Expiration Date: 01 April 2026
-
-This is an early access build of the SDK so you can start building content.
-
-We will be making signficant improvements to the quality of the experience and also addressing wider ecosystem questions (such as how third-party apps could integrate with a future "Zapbox Hub" app) which will require apps to update the version of their SDK for compatibility.
-
-Therefore we have decided to introduce an expiry date for these early access SDKs to ensure users will get a consistent experience as we continue to grow the number of new users coming to Zapbox. We'll ensure the update process will be seemless for developers and will post updated SDKs well in advance of the expiration date.
